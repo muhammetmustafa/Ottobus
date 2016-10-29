@@ -1,6 +1,7 @@
 ﻿using System;
+using Ottobus.Domain.Models;
 
-namespace Ottobus.Domain.Models
+namespace Ottobus.Repositories
 {
     public interface IDurakRepository
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Ottobus.Models
+namespace Ottobus.Web.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

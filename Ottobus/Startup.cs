@@ -1,8 +1,9 @@
 ﻿using Microsoft.Owin;
+using Ottobus.Web;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Ottobus.Startup))]
-namespace Ottobus
+[assembly: OwinStartup(typeof(Startup))]
+namespace Ottobus.Web
 {
     public partial class Startup
     {

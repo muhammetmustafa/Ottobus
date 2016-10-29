@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
+using Ottobus.Core;
+using Ottobus.DataLayer.Arayuzler;
 using Ottobus.Domain.Models;
 
 namespace Ottobus.Repositories
@@ -12,9 +14,9 @@ namespace Ottobus.Repositories
     {
         public void ekle(Durak durak)
         {
-            using (ISession session = HibernateUtil.sessionFactory.OpenSession())
+            using (var session = ServisBulucu.bul<IOturumFabrikasi>().oturumAc())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                using (var transaction = session.BeginTransaction())
                 {
                     session.Save(durak);
                     transaction.Commit();
@@ -24,9 +26,9 @@ namespace Ottobus.Repositories
 
         public void guncelle(Durak durak)
         {
-            using (ISession session = HibernateUtil.sessionFactory.OpenSession())
+            using (var session = ServisBulucu.bul<IOturumFabrikasi>().oturumAc())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                using (var transaction = session.BeginTransaction())
                 {
                     session.Update(durak);
                     transaction.Commit();
@@ -36,9 +38,9 @@ namespace Ottobus.Repositories
 
         public void sil(Durak durak)
         {
-            using (ISession session = HibernateUtil.sessionFactory.OpenSession())
+            using (var session = ServisBulucu.bul<IOturumFabrikasi>().oturumAc())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                using (var transaction = session.BeginTransaction())
                 {
                     session.Delete(durak);
                     transaction.Commit();

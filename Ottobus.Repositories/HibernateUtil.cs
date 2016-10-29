@@ -1,9 +1,11 @@
 ﻿using System.Reflection;
 using System.Web;
+using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using Ottobus.Domain;
 using Ottobus.Domain.Models;
 
 namespace Ottobus.Repositories
@@ -20,7 +22,10 @@ namespace Ottobus.Repositories
 
         private static ISessionFactory createSessionFactory()
         {
-            Assembly assembly = Assembly.GetAssembly(typeof (Durak));
+            var autoMappings = new AutoPersistenceModel()
+                  .AddMappingsFromAssemblyOf<Ortak>()
+                  .IgnoreBase<Ortak>()
+                  .Where(t => t.Namespace == "Ottobus.Domain");
 
             return
             Fluently.Configure()
@@ -33,9 +38,7 @@ namespace Ottobus.Repositories
                     .Database("ottobus"))
                 .ShowSql()
             )
-            .Mappings(m => 
-                m.FluentMappings.AddFromAssembly(assembly)
-            )
+            .Mappings(m => m.AutoMappings.Add(autoMappings))
             .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(true, true))
             .BuildSessionFactory();
         }

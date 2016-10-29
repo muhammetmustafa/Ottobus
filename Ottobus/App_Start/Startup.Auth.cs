@@ -3,11 +3,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
+using Ottobus.Web.Models;
 using Owin;
-using Ottobus.Models;
 
-namespace Ottobus
+namespace Ottobus.Web
 {
     public partial class Startup
     {

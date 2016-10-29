@@ -27,8 +27,8 @@ namespace Ottobus.Tests.DomainTests
             durakRepository.guncelle(new Durak()
             {
                 Ad = "Oltu Sitesi",
-                Boylam = 1.34d,
-                Enlem = 1.34d
+                Boylam = 1.3433d,
+                Enlem = 1.3334d
             });
         }
     }

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ottobus.Domain", "Ottobus.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ottobus.Repositories", "Ottobus.Repositories\Ottobus.Repositories.csproj", "{118C7324-5831-48C1-87FF-842554F07C91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ottobus.Core", "Ottobus.Core\Ottobus.Core.csproj", "{3CDFF083-095A-43E5-AFEC-C13097D83B25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ottobus.DataLayer", "Ottobus.DataLayer\Ottobus.DataLayer.csproj", "{6C93AEDE-41B9-47B2-B6C0-ADC9BC5B2E74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{118C7324-5831-48C1-87FF-842554F07C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{118C7324-5831-48C1-87FF-842554F07C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{118C7324-5831-48C1-87FF-842554F07C91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDFF083-095A-43E5-AFEC-C13097D83B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDFF083-095A-43E5-AFEC-C13097D83B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDFF083-095A-43E5-AFEC-C13097D83B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDFF083-095A-43E5-AFEC-C13097D83B25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C93AEDE-41B9-47B2-B6C0-ADC9BC5B2E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C93AEDE-41B9-47B2-B6C0-ADC9BC5B2E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C93AEDE-41B9-47B2-B6C0-ADC9BC5B2E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C93AEDE-41B9-47B2-B6C0-ADC9BC5B2E74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

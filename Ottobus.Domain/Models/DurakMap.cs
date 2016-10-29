@@ -1,14 +1,14 @@
 ﻿using FluentNHibernate.Mapping;
-using Ottobus.Domain.Models;
+using NHibernate.Mapping.ByCode;
 
-namespace Ottobus.Domain.Mappings
+namespace Ottobus.Domain.Models
 {
-    public class DurakMap : ClassMap<Durak>
+    public class DurakMap : OrtakMap<Durak>
     {
         public DurakMap()
         {
             Table("duraklar");
-            Id(x => x.ID);
+
             Map(x => x.Ad).Not.Nullable();
             Map(x => x.Enlem).Not.Nullable();
             Map(x => x.Boylam).Not.Nullable();

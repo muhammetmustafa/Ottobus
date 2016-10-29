@@ -52,14 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappings\DurakMap.cs" />
+    <Compile Include="Models\DurakMap.cs" />
     <Compile Include="Models\Durak.cs" />
-    <Compile Include="Models\IDurakRepository.cs" />
+    <Compile Include="Ortak.cs" />
+    <Compile Include="OrtakMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
