@@ -1,4 +1,4 @@
-﻿using Ottobus.Core.Arayuzler;
+﻿
 
 namespace Ottobus.Core.Ayarlar
 {

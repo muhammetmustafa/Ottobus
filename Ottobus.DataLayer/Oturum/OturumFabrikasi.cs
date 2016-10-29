@@ -3,8 +3,7 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
-using Ottobus.Core.Arayuzler;
-using Ottobus.DataLayer.Arayuzler;
+using Ottobus.Core.Ayarlar;
 using Ottobus.Domain;
 
 namespace Ottobus.DataLayer.Oturum

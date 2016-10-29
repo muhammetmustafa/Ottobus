@@ -72,10 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="LightCore.config" />
-    <None Include="LightCore.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="lightcore.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

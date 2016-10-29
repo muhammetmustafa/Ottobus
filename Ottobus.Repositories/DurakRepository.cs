@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using Ottobus.Core;
-using Ottobus.DataLayer.Arayuzler;
+using Ottobus.DataLayer.Oturum;
 using Ottobus.Domain.Models;
 
 namespace Ottobus.Repositories

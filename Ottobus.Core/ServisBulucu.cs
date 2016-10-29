@@ -1,6 +1,8 @@
-﻿using LightCore;
+﻿using System;
+using LightCore;
 using LightCore.Configuration;
 using LightCore.Registration;
+using Ottobus.Core.Ayarlar;
 
 namespace Ottobus.Core
 {
@@ -12,21 +14,20 @@ namespace Ottobus.Core
         {
             if (_container == null)
             {
-                ayarla("LightCore.config");
+                ayarla();
+            }
+            if (_container == null)
+            {
+                throw new Exception("Konteynır hatası!");
             }
 
             return (T) _container.Resolve(typeof (T));
         }
 
-        public static void ayarla(string dosyaAdi)
+        public static void ayarla()
         {
-            if (_container == null)
-            {
-                return;
-            }
-
             var builder = new ContainerBuilder();
-            RegistrationModule xamlModule = new XamlRegistrationModule(dosyaAdi);
+            RegistrationModule xamlModule = new XamlRegistrationModule("lightcore.config");
             builder.RegisterModule(xamlModule);
             _container = builder.Build();
         }
