@@ -3,8 +3,10 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using Ottobus.Core.Ayarlar;
+using Ottobus.Domain.Models;
 
-namespace Ottobus.Data.Oturum
+namespace Ottobus.Domain.Oturum
 {
     public class OturumFabrikasi : IOturumFabrikasi
     {

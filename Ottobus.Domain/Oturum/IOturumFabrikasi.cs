@@ -1,6 +1,6 @@
 ﻿using NHibernate;
 
-namespace Ottobus.Data.Oturum
+namespace Ottobus.Domain.Oturum
 {
     public interface IOturumFabrikasi
     {

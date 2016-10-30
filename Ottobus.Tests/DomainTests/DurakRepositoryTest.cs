@@ -8,10 +8,16 @@ namespace Ottobus.Tests.DomainTests
     [TestClass]
     public class DurakRepositoryTest
     {
+        [TestInitialize]
+        public void onyukleme()
+        {
+            Onyukleyici.onYukle();   
+        }
+
         [TestMethod]
         public void DurakEklemeTesti()
         {
-            IDurakRepository durakRepository = new DurakRepository();
+            IDurakRepository durakRepository = Onyukleyici.bul<IDurakRepository>();
             durakRepository.ekle(new Durak()
             {
                 Ad="Oltu Sitesi",
@@ -23,7 +29,7 @@ namespace Ottobus.Tests.DomainTests
         [TestMethod]
         public void DurakGuncellemeTesti()
         {
-            IDurakRepository durakRepository = new DurakRepository();
+            IDurakRepository durakRepository = Onyukleyici.bul<IDurakRepository>();
             durakRepository.guncelle(new Durak()
             {
                 Ad = "Oltu Sitesi",

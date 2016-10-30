@@ -1,14 +1,10 @@
-﻿using System.Reflection;
-using System.Web;
-using FluentNHibernate.Automapping;
+﻿using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
-using Ottobus.Domain;
-using Ottobus.Domain.Models;
 
-namespace Ottobus.Repositories
+namespace Ottobus.Data
 {
     public class HibernateUtil
     {
@@ -43,35 +39,7 @@ namespace Ottobus.Repositories
             .BuildSessionFactory();
         }
 
-        public static ISession getCurrentSession()
-        {
-            HttpContext context = HttpContext.Current;
-            ISession currentSession = context.Items[CurrentSessionKey] as ISession;
-
-            if (currentSession == null)
-            {
-                currentSession = sessionFactory.OpenSession();
-                context.Items[CurrentSessionKey] = currentSession;
-            }
-
-            return currentSession;
-        }
-
-        public static void closeSession()
-        {
-            HttpContext context = HttpContext.Current;
-            ISession currentSession = context.Items[CurrentSessionKey] as ISession;
-
-            if (currentSession == null)
-            {
-                // No current session
-                return;
-            }
-
-            currentSession.Close();
-            context.Items.Remove(CurrentSessionKey);
-        }
-
+       
         public static void closeSessionFactory()
         {
             if (sessionFactory != null)

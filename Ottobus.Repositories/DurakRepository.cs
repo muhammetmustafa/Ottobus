@@ -1,20 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using Ottobus.Core;
-using Ottobus.DataLayer.Oturum;
 using Ottobus.Domain.Models;
+using Ottobus.Domain.Oturum;
 
 namespace Ottobus.Repositories
 {
     public class DurakRepository : IDurakRepository
     {
+        private IOturumFabrikasi _oturumFabrikasi;
+
+        public DurakRepository(IOturumFabrikasi oturumFabrikasi)
+        {
+            _oturumFabrikasi = oturumFabrikasi;
+        }
+
         public void ekle(Durak durak)
         {
-            using (var session = ServisBulucu.bul<IOturumFabrikasi>().oturumAc())
+            using (var session = _oturumFabrikasi.oturumAc())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -26,7 +32,7 @@ namespace Ottobus.Repositories
 
         public void guncelle(Durak durak)
         {
-            using (var session = ServisBulucu.bul<IOturumFabrikasi>().oturumAc())
+            using (var session = _oturumFabrikasi.oturumAc())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -38,7 +44,7 @@ namespace Ottobus.Repositories
 
         public void sil(Durak durak)
         {
-            using (var session = ServisBulucu.bul<IOturumFabrikasi>().oturumAc())
+            using (var session = _oturumFabrikasi.oturumAc())
             {
                 using (var transaction = session.BeginTransaction())
                 {

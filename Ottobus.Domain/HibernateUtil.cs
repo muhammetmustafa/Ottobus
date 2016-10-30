@@ -3,26 +3,21 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using Ottobus.Domain.Models;
 
-namespace Ottobus.Data.Oturum
+namespace Ottobus.Domain
 {
-    public class OturumFabrikasi : IOturumFabrikasi
+    public class HibernateUtil
     {
         private const string CurrentSessionKey = "nhibernate.current_session";
+        public static readonly ISessionFactory sessionFactory;
 
-        private readonly IGenelAyarlar _ayarlar;
-        private readonly ISessionFactory _oturumFabrikasi;
-
-        private ISession _oturum;
-
-        public OturumFabrikasi(IGenelAyarlar ayarlar)
+        static HibernateUtil()
         {
-            _ayarlar = ayarlar;
-
-            _oturumFabrikasi = oturumFabrikasiOlustur();
+            sessionFactory = createSessionFactory();
         }
 
-        private static ISessionFactory oturumFabrikasiOlustur()
+        private static ISessionFactory createSessionFactory()
         {
             var autoMappings = new AutoPersistenceModel()
                   .AddMappingsFromAssemblyOf<Ortak>()
@@ -45,14 +40,13 @@ namespace Ottobus.Data.Oturum
             .BuildSessionFactory();
         }
 
-        public ISession oturumAc()
+       
+        public static void closeSessionFactory()
         {
-            if (_oturum != null)
+            if (sessionFactory != null)
             {
-                _oturum = _oturumFabrikasi.OpenSession();
+                sessionFactory.Close();
             }
-
-            return _oturum;
         }
     }
 }

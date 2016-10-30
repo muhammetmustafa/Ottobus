@@ -1,7 +1,6 @@
 ﻿using System;
-using NHibernate.Tuple;
 
-namespace Ottobus.Domain
+namespace Ottobus.Domain.Models
 {
     public abstract class Ortak
     {

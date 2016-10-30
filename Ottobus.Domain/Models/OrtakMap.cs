@@ -1,7 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
-using FluentNHibernate.MappingModel.ClassBased;
 
-namespace Ottobus.Domain
+namespace Ottobus.Domain.Models
 {
     public class OrtakMap<T> : ClassMap<T> where T : Ortak
     {

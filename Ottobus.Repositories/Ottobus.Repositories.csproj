@@ -30,14 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -45,16 +37,10 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DurakRepository.cs" />
-    <Compile Include="HibernateUtil.cs" />
     <Compile Include="IDurakRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,10 +48,6 @@
     <ProjectReference Include="..\Ottobus.Core\Ottobus.Core.csproj">
       <Project>{3cdff083-095a-43e5-afec-c13097d83b25}</Project>
       <Name>Ottobus.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ottobus.DataLayer\Ottobus.DataLayer.csproj">
-      <Project>{6c93aede-41b9-47b2-b6c0-adc9bc5b2e74}</Project>
-      <Name>Ottobus.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ottobus.Domain\Ottobus.Domain.csproj">
       <Project>{9a4a3123-f89e-49d0-93ce-f0481c56ca38}</Project>

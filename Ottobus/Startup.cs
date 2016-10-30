@@ -10,6 +10,6 @@ namespace Ottobus.Web
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-        }
+        }       
     }
 }
