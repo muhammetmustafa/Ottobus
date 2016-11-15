@@ -52,8 +52,12 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.2.4.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.3.2.4\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="Npgsql, Version=3.1.8.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.1.8\lib\net451\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.2.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.2.7\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -65,20 +69,6 @@
     <Compile Include="Onyukleyici.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ottobus.Core\Ottobus.Core.csproj">
-      <Project>{3cdff083-095a-43e5-afec-c13097d83b25}</Project>
-      <Name>Ottobus.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ottobus.Domain\Ottobus.Domain.csproj">
-      <Project>{9a4a3123-f89e-49d0-93ce-f0481c56ca38}</Project>
-      <Name>Ottobus.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ottobus.Repositories\Ottobus.Repositories.csproj">
-      <Project>{118c7324-5831-48c1-87ff-842554f07c91}</Project>
-      <Name>Ottobus.Repositories</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="app.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -88,6 +78,24 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ottobus.Core\Ottobus.Core.csproj">
+      <Project>{3cdff083-095a-43e5-afec-c13097d83b25}</Project>
+      <Name>Ottobus.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ottobus.Domain\Ottobus.Domain.csproj">
+      <Project>{9a4a3123-f89e-49d0-93ce-f0481c56ca38}</Project>
+      <Name>Ottobus.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ottobus.Infrastructure\Ottobus.Infrastructure.csproj">
+      <Project>{9cea57d0-6501-4e9c-b49c-44196d3c602e}</Project>
+      <Name>Ottobus.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ottobus.Repositories\Ottobus.Repositories.csproj">
+      <Project>{118c7324-5831-48c1-87ff-842554f07c91}</Project>
+      <Name>Ottobus.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,7 +1,7 @@
 ﻿using LightCore;
 using LightCore.Lifecycle;
 using Ottobus.Core.Ayarlar;
-using Ottobus.Domain.Oturum;
+using Ottobus.Infrastructure.Oturum;
 using Ottobus.Repositories;
 
 namespace Ottobus.Tests
@@ -20,15 +20,20 @@ namespace Ottobus.Tests
 
         public static T bul<T>()
         {
+            if (_container == null)
+            {
+                onYukle();
+            }
+
             return (T) _container.Resolve(typeof (T));
         }
 
-        private static void servisleriKaydet(ContainerBuilder konteynirInsaaci)
+        private static void servisleriKaydet(IContainerBuilder konteynirInsaaci)
         {
+            konteynirInsaaci.Register<IOturumFabrikasi, OturumFabrikasi>().ControlledBy<SingletonLifecycle>();
+
             konteynirInsaaci.Register<IGenelAyarlar, GenelAyarlar>();
             konteynirInsaaci.Register<IDurakRepository, DurakRepository>();
-            konteynirInsaaci.Register<IOturumFabrikasi, OturumFabrikasi>()
-                            .ControlledBy<SingletonLifecycle>();
         }
     }
 }

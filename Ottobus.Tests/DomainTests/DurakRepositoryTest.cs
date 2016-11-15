@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Ottobus.Domain.Models;
+using Ottobus.Domain;
 using Ottobus.Repositories;
 
 namespace Ottobus.Tests.DomainTests
@@ -8,34 +9,79 @@ namespace Ottobus.Tests.DomainTests
     [TestClass]
     public class DurakRepositoryTest
     {
-        [TestInitialize]
-        public void onyukleme()
+
+        private IDurakRepository yeniDurakRepository<TId>()
         {
-            Onyukleyici.onYukle();   
+            return Onyukleyici.bul<IDurakRepository>();
+        }
+
+        private Durak yeniDurak<TId>()
+        {
+            return Onyukleyici.bul<Durak>();
         }
 
         [TestMethod]
         public void DurakEklemeTesti()
         {
-            IDurakRepository durakRepository = Onyukleyici.bul<IDurakRepository>();
-            durakRepository.ekle(new Durak()
-            {
-                Ad="Oltu Sitesi",
-                Boylam = 23.342222d,
-                Enlem = 31.34223342d
-            });
+            var durak = yeniDurak<long>();
+            durak.Ad = "ÇInaaar Caddesi Durağı";
+            durak.Enlem = 3.4424d;
+            durak.Boylam = 35.34234d;
+
+            yeniDurakRepository<long>()
+            .kaydetGuncelle(durak);
         }
 
         [TestMethod]
         public void DurakGuncellemeTesti()
         {
-            IDurakRepository durakRepository = Onyukleyici.bul<IDurakRepository>();
-            durakRepository.guncelle(new Durak()
+            var durak = yeniDurak<long>();
+            durak.Ad = "Elmas Sitesi";
+            durak.Enlem = 334.4424d;
+            durak.Boylam = 35.34234d;
+
+            yeniDurakRepository<long>()
+            .guncelle(durak);
+        }
+
+        [TestMethod]
+        public void DurakSilmeTesti()
+        {
+            var durak = yeniDurak<long>();
+            durak.Ad = "Elmas Sitesi";
+
+            yeniDurakRepository<long>()
+            .sil(durak);
+        }
+
+        [TestMethod]
+        public void DurakBulmaTestiIdIle()
+        {
+            var durak = yeniDurakRepository<long>().idIleBul(11);
+
+            if (durak == null)
             {
-                Ad = "Oltu Sitesi",
-                Boylam = 1.3433d,
-                Enlem = 1.3334d
-            });
+                Console.WriteLine("Bulunamadı");
+            }
+            else
+            {
+                Console.WriteLine(durak.ID + " " + durak.Ad);
+            }
+        }
+
+        [TestMethod]
+        public void DurakBulmaTestiIsimIle()
+        {
+            var durak = yeniDurakRepository<long>().isimIleBul("çınar");
+
+            if (durak == null)
+            {
+                Console.WriteLine("Bulunamadı");
+            }
+            else
+            {
+                Console.WriteLine(durak.ID + " " + durak.Ad);
+            }
         }
     }
 }

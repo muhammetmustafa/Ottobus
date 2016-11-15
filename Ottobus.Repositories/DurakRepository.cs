@@ -1,67 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
+using System.Linq;
 using NHibernate;
-using Ottobus.Core;
-using Ottobus.Domain.Models;
-using Ottobus.Domain.Oturum;
+using NHibernate.Linq;
+using Ottobus.Domain;
+using Ottobus.Infrastructure.Oturum;
 
 namespace Ottobus.Repositories
 {
-    public class DurakRepository : IDurakRepository
+    public class DurakRepository : OrtakRepository<Durak>, IDurakRepository
     {
-        private IOturumFabrikasi _oturumFabrikasi;
-
-        public DurakRepository(IOturumFabrikasi oturumFabrikasi)
+        public DurakRepository(IOturumFabrikasi oturumFabrikasi) : base(oturumFabrikasi)
         {
-            _oturumFabrikasi = oturumFabrikasi;
-        }
-
-        public void ekle(Durak durak)
-        {
-            using (var session = _oturumFabrikasi.oturumAc())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    session.Save(durak);
-                    transaction.Commit();
-                }
-            }
-        }
-
-        public void guncelle(Durak durak)
-        {
-            using (var session = _oturumFabrikasi.oturumAc())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    session.Update(durak);
-                    transaction.Commit();
-                }
-            }
-        }
-
-        public void sil(Durak durak)
-        {
-            using (var session = _oturumFabrikasi.oturumAc())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    session.Delete(durak);
-                    transaction.Commit();
-                }
-            }
-        }
-
-        public Durak idIleBul(Guid id)
-        {
-            throw new NotImplementedException();
         }
 
         public Durak isimIleBul(string isim)
         {
-            throw new NotImplementedException();
+            var _isim = isim.ToLower(CultureInfo.CurrentCulture);
+
+            using (var oturum = _oturumFabrikasi.oturumAc())
+            {
+                return oturum.Query<Durak>().FirstOrDefault(d => 
+                    d.Ad.ToLower() == _isim || 
+                    d.Ad.ToLower().Contains(_isim));
+            }
         }
     }
 }
