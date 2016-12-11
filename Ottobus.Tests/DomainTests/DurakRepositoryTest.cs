@@ -9,13 +9,10 @@ namespace Ottobus.Tests.DomainTests
     [TestClass]
     public class DurakRepositoryTest
     {
+        private readonly IDurakRepository _durakRepository = Onyukleyici.bul<IDurakRepository>();
+        
 
-        private IDurakRepository yeniDurakRepository<TId>()
-        {
-            return Onyukleyici.bul<IDurakRepository>();
-        }
-
-        private Durak yeniDurak<TId>()
+        private Durak yeniDurak()
         {
             return Onyukleyici.bul<Durak>();
         }
@@ -23,41 +20,38 @@ namespace Ottobus.Tests.DomainTests
         [TestMethod]
         public void DurakEklemeTesti()
         {
-            var durak = yeniDurak<long>();
+            var durak = yeniDurak();
             durak.Ad = "ÇInaaar Caddesi Durağı";
             durak.Enlem = 3.4424d;
             durak.Boylam = 35.34234d;
 
-            yeniDurakRepository<long>()
-            .kaydetGuncelle(durak);
+            _durakRepository.kaydetGuncelle(durak);
         }
 
         [TestMethod]
         public void DurakGuncellemeTesti()
         {
-            var durak = yeniDurak<long>();
+            var durak = yeniDurak();
             durak.Ad = "Elmas Sitesi";
             durak.Enlem = 334.4424d;
             durak.Boylam = 35.34234d;
 
-            yeniDurakRepository<long>()
-            .guncelle(durak);
+            _durakRepository.kaydetGuncelle(durak);
         }
 
         [TestMethod]
         public void DurakSilmeTesti()
         {
-            var durak = yeniDurak<long>();
+            var durak = yeniDurak();
             durak.Ad = "Elmas Sitesi";
 
-            yeniDurakRepository<long>()
-            .sil(durak);
+            _durakRepository.sil(durak);
         }
 
         [TestMethod]
         public void DurakBulmaTestiIdIle()
         {
-            var durak = yeniDurakRepository<long>().idIleBul(11);
+            var durak = _durakRepository.idIleBul(11);
 
             if (durak == null)
             {
@@ -72,7 +66,7 @@ namespace Ottobus.Tests.DomainTests
         [TestMethod]
         public void DurakBulmaTestiIsimIle()
         {
-            var durak = yeniDurakRepository<long>().isimIleBul("çınar");
+            var durak = _durakRepository.isimIleBul("çınar");
 
             if (durak == null)
             {

@@ -33,7 +33,11 @@ namespace Ottobus.Tests
             konteynirInsaaci.Register<IOturumFabrikasi, OturumFabrikasi>().ControlledBy<SingletonLifecycle>();
 
             konteynirInsaaci.Register<IGenelAyarlar, GenelAyarlar>();
+
+            konteynirInsaaci.Register(typeof(IOrtakRepository<>), typeof(OrtakRepository<>));
             konteynirInsaaci.Register<IDurakRepository, DurakRepository>();
+            konteynirInsaaci.Register<IHatRepository, HatRepository>();
+            konteynirInsaaci.Register<IOtobusRepository, OtobusRepository>();
         }
     }
 }

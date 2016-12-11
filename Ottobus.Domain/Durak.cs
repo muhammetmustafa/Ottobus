@@ -10,6 +10,6 @@ namespace Ottobus.Domain
 
         public virtual double Boylam { get; set; }
 
-        public virtual List<Guzergah> Guzergahlar { get; set; }
+        public virtual IList<Guzergah> Guzergahlar { get; set; }
     }
 }

@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DurakRepository.cs" />
+    <Compile Include="HatRepository.cs" />
     <Compile Include="IDurakRepository.cs" />
+    <Compile Include="IHatRepository.cs" />
     <Compile Include="IOrtakRepository.cs" />
     <Compile Include="IOtobusRepository.cs" />
     <Compile Include="OrtakRepository.cs" />

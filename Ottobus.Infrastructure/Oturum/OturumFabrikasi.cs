@@ -54,7 +54,7 @@ namespace Ottobus.Infrastructure.Oturum
             {
                 _oturum = _oturumFabrikasi.OpenSession();
             }
-
+            
             return _oturum;
         }
     }

@@ -10,8 +10,8 @@ namespace Ottobus.Domain.Mappings
             Table("guzergahlar");
 
             Map(x => x.UgramaSirasi).Column("ugrama_sirasi").Not.Nullable();
-            HasOne(x => x.Hat).LazyLoad(Laziness.Proxy);
-            HasOne(x => x.Durak).LazyLoad(Laziness.Proxy);
+            References(x => x.Hat).LazyLoad(Laziness.Proxy);
+            References(x => x.Durak).LazyLoad(Laziness.Proxy);
         }
     }
 }

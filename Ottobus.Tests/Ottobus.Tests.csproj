@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainTests\DurakRepositoryTest.cs" />
+    <Compile Include="DomainTests\HatRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Onyukleyici.cs" />
   </ItemGroup>
